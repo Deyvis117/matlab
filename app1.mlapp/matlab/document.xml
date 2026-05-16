@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[classdef app1 < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure          matlab.ui.Figure
+        RegresarButton    matlab.ui.control.Button
+        tabla             matlab.ui.control.Table
+        GrficaButton      matlab.ui.control.Button
+        resolverButton    matlab.ui.control.Button
+        txtr3             matlab.ui.control.NumericEditField
+        EditField_3Label  matlab.ui.control.Label
+        txt9              matlab.ui.control.NumericEditField
+        z3EditFieldLabel  matlab.ui.control.Label
+        txt8              matlab.ui.control.NumericEditField
+        y3EditFieldLabel  matlab.ui.control.Label
+        txt7              matlab.ui.control.NumericEditField
+        x3EditFieldLabel  matlab.ui.control.Label
+        txtr2             matlab.ui.control.NumericEditField
+        EditField_2Label  matlab.ui.control.Label
+        txt6              matlab.ui.control.NumericEditField
+        z2EditFieldLabel  matlab.ui.control.Label
+        txt5              matlab.ui.control.NumericEditField
+        y2EditFieldLabel  matlab.ui.control.Label
+        txt4              matlab.ui.control.NumericEditField
+        x2EditFieldLabel  matlab.ui.control.Label
+        txtr1             matlab.ui.control.NumericEditField
+        EditFieldLabel    matlab.ui.control.Label
+        txt3              matlab.ui.control.NumericEditField
+        z1EditFieldLabel  matlab.ui.control.Label
+        txt2              matlab.ui.control.NumericEditField
+        y1EditFieldLabel  matlab.ui.control.Label
+        txt1              matlab.ui.control.NumericEditField
+        x1EditFieldLabel  matlab.ui.control.Label
+    end
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Button pushed function: resolverButton
+        function resolverButtonPushed(app, event)
+            n1=app.txt1.Value
+            n2=app.txt2.Value
+            n3=app.txt3.Value
+            r1=app.txtr1.Value
+
+            n4=app.txt4.Value
+            n5=app.txt4.Value
+            n6=app.txt6.Value
+            r2=app.txtr2.Value
+
+            n7=app.txt7.Value
+            n8=app.txt8.Value
+            n9=app.txt9.Value
+            r3=app.txtr3.Value
+            app.tabla.Data=funcion3y3(n1,n2,n3,r1,n4,n5,n6,r2,n7,n8,n9,r3 )
+            
+        end
+
+        % Button pushed function: GrficaButton
+        function GrficaButtonPushed(app, event)
+            n1=app.txt1.Value
+            n2=app.txt2.Value
+            n3=app.txt3.Value
+            r1=app.txtr1.Value
+
+            n4=app.txt4.Value
+            n5=app.txt4.Value
+            n6=app.txt6.Value
+            r2=app.txtr2.Value
+
+            n7=app.txt7.Value
+            n8=app.txt8.Value
+            n9=app.txt9.Value
+            r3=app.txtr3.Value
+            grafica3y3 (n1,n2,n3,r1,n4,n5,n6,r2,n7,n8,n9,r3)
+        end
+
+        % Button pushed function: RegresarButton
+        function RegresarButtonPushed(app, event)
+            delete(app)
+            menu
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure and hide until all components are created
+            app.UIFigure = uifigure('Visible', 'off');
+            app.UIFigure.Position = [100 100 640 480];
+            app.UIFigure.Name = 'MATLAB App';
+
+            % Create x1EditFieldLabel
+            app.x1EditFieldLabel = uilabel(app.UIFigure);
+            app.x1EditFieldLabel.HorizontalAlignment = 'right';
+            app.x1EditFieldLabel.Position = [41 373 25 22];
+            app.x1EditFieldLabel.Text = 'x1';
+
+            % Create txt1
+            app.txt1 = uieditfield(app.UIFigure, 'numeric');
+            app.txt1.Position = [81 368 90 32];
+
+            % Create y1EditFieldLabel
+            app.y1EditFieldLabel = uilabel(app.UIFigure);
+            app.y1EditFieldLabel.HorizontalAlignment = 'right';
+            app.y1EditFieldLabel.Position = [200 393 25 22];
+            app.y1EditFieldLabel.Text = 'y1';
+
+            % Create txt2
+            app.txt2 = uieditfield(app.UIFigure, 'numeric');
+            app.txt2.Position = [224 363 90 32];
+
+            % Create z1EditFieldLabel
+            app.z1EditFieldLabel = uilabel(app.UIFigure);
+            app.z1EditFieldLabel.HorizontalAlignment = 'right';
+            app.z1EditFieldLabel.Position = [354 388 25 22];
+            app.z1EditFieldLabel.Text = 'z1';
+
+            % Create txt3
+            app.txt3 = uieditfield(app.UIFigure, 'numeric');
+            app.txt3.Position = [378 358 90 32];
+
+            % Create EditFieldLabel
+            app.EditFieldLabel = uilabel(app.UIFigure);
+            app.EditFieldLabel.HorizontalAlignment = 'right';
+            app.EditFieldLabel.Position = [499 393 25 22];
+            app.EditFieldLabel.Text = '=';
+
+            % Create txtr1
+            app.txtr1 = uieditfield(app.UIFigure, 'numeric');
+            app.txtr1.Position = [523 363 90 32];
+
+            % Create x2EditFieldLabel
+            app.x2EditFieldLabel = uilabel(app.UIFigure);
+            app.x2EditFieldLabel.HorizontalAlignment = 'right';
+            app.x2EditFieldLabel.Position = [57 327 25 22];
+            app.x2EditFieldLabel.Text = 'x2';
+
+            % Create txt4
+            app.txt4 = uieditfield(app.UIFigure, 'numeric');
+            app.txt4.Position = [81 297 90 32];
+
+            % Create y2EditFieldLabel
+            app.y2EditFieldLabel = uilabel(app.UIFigure);
+            app.y2EditFieldLabel.HorizontalAlignment = 'right';
+            app.y2EditFieldLabel.Position = [201 327 25 22];
+            app.y2EditFieldLabel.Text = 'y2';
+
+            % Create txt5
+            app.txt5 = uieditfield(app.UIFigure, 'numeric');
+            app.txt5.Position = [225 297 90 32];
+
+            % Create z2EditFieldLabel
+            app.z2EditFieldLabel = uilabel(app.UIFigure);
+            app.z2EditFieldLabel.HorizontalAlignment = 'right';
+            app.z2EditFieldLabel.Position = [354 327 25 22];
+            app.z2EditFieldLabel.Text = 'z2';
+
+            % Create txt6
+            app.txt6 = uieditfield(app.UIFigure, 'numeric');
+            app.txt6.Position = [378 297 90 32];
+
+            % Create EditField_2Label
+            app.EditField_2Label = uilabel(app.UIFigure);
+            app.EditField_2Label.HorizontalAlignment = 'right';
+            app.EditField_2Label.Position = [499 332 25 22];
+            app.EditField_2Label.Text = '=';
+
+            % Create txtr2
+            app.txtr2 = uieditfield(app.UIFigure, 'numeric');
+            app.txtr2.Position = [523 302 90 32];
+
+            % Create x3EditFieldLabel
+            app.x3EditFieldLabel = uilabel(app.UIFigure);
+            app.x3EditFieldLabel.HorizontalAlignment = 'right';
+            app.x3EditFieldLabel.Position = [57 267 25 22];
+            app.x3EditFieldLabel.Text = 'x3';
+
+            % Create txt7
+            app.txt7 = uieditfield(app.UIFigure, 'numeric');
+            app.txt7.Position = [81 237 90 32];
+
+            % Create y3EditFieldLabel
+            app.y3EditFieldLabel = uilabel(app.UIFigure);
+            app.y3EditFieldLabel.HorizontalAlignment = 'right';
+            app.y3EditFieldLabel.Position = [201 267 25 22];
+            app.y3EditFieldLabel.Text = 'y3';
+
+            % Create txt8
+            app.txt8 = uieditfield(app.UIFigure, 'numeric');
+            app.txt8.Position = [225 237 90 32];
+
+            % Create z3EditFieldLabel
+            app.z3EditFieldLabel = uilabel(app.UIFigure);
+            app.z3EditFieldLabel.HorizontalAlignment = 'right';
+            app.z3EditFieldLabel.Position = [354 272 25 22];
+            app.z3EditFieldLabel.Text = 'z3';
+
+            % Create txt9
+            app.txt9 = uieditfield(app.UIFigure, 'numeric');
+            app.txt9.Position = [378 242 90 32];
+
+            % Create EditField_3Label
+            app.EditField_3Label = uilabel(app.UIFigure);
+            app.EditField_3Label.HorizontalAlignment = 'right';
+            app.EditField_3Label.Position = [499 272 25 22];
+            app.EditField_3Label.Text = '=';
+
+            % Create txtr3
+            app.txtr3 = uieditfield(app.UIFigure, 'numeric');
+            app.txtr3.Position = [523 242 90 32];
+
+            % Create resolverButton
+            app.resolverButton = uibutton(app.UIFigure, 'push');
+            app.resolverButton.ButtonPushedFcn = createCallbackFcn(app, @resolverButtonPushed, true);
+            app.resolverButton.Position = [170 173 120 39];
+            app.resolverButton.Text = 'resolver';
+
+            % Create GrficaButton
+            app.GrficaButton = uibutton(app.UIFigure, 'push');
+            app.GrficaButton.ButtonPushedFcn = createCallbackFcn(app, @GrficaButtonPushed, true);
+            app.GrficaButton.Position = [314 170 129 44];
+            app.GrficaButton.Text = 'Gráfica';
+
+            % Create tabla
+            app.tabla = uitable(app.UIFigure);
+            app.tabla.ColumnName = {'Column 1'; 'Column 2'; 'Column 3'; 'Column 4'};
+            app.tabla.RowName = {};
+            app.tabla.Position = [200 24 284 123];
+
+            % Create RegresarButton
+            app.RegresarButton = uibutton(app.UIFigure, 'push');
+            app.RegresarButton.ButtonPushedFcn = createCallbackFcn(app, @RegresarButtonPushed, true);
+            app.RegresarButton.Position = [500 146 120 54];
+            app.RegresarButton.Text = 'Regresar';
+
+            % Show the figure after all components are created
+            app.UIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = app1
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end]]></w:t></w:r></w:p></w:body></w:document>
